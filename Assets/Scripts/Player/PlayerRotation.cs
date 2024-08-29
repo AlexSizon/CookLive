@@ -11,7 +11,7 @@ namespace Player
         private Vector3 cameraRotate;
         private Vector3 playerRotate;
 
-        void Update()
+        private void Update()
         {
             _mouseX = Input.GetAxis("Mouse X");
             _mouseY = Input.GetAxis("Mouse Y");
