@@ -20,16 +20,17 @@ namespace Player
 
         private void RotatePlayer()
         {
-            
-            cameraRotate = new Vector3(_mouseY* sensitivity, 0, 0);
+            cameraRotate = new Vector3(_mouseY * sensitivity, 0, 0);
             playerRotate = new Vector3(0, -_mouseX * sensitivity, 0);
             transform.eulerAngles = transform.eulerAngles - playerRotate;
             var tempCameraRotation = playerCamera.transform.eulerAngles - cameraRotate;
-            if (tempCameraRotation.x)
+            Debug.Log(tempCameraRotation);
+            if (tempCameraRotation.x >= 75f && tempCameraRotation.x <= 285f)
             {
-                
+                return;
             }
-            playerCamera.transform.eulerAngles = ;
+
+            playerCamera.transform.eulerAngles = tempCameraRotation;
         }
     }
 }
