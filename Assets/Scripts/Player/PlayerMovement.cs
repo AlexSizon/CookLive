@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Player
@@ -13,7 +14,7 @@ namespace Player
             _controller = GetComponent<CharacterController>();
             SetCursorLockState(false);
         }
-        
+
         private void Update()
         {
             _horizontal = Input.GetAxis("Horizontal");
@@ -22,10 +23,10 @@ namespace Player
             {
                 SetCursorLockState(true);
             }
+
             MovePlayer();
         }
 
-       
 
         private void MovePlayer()
         {
