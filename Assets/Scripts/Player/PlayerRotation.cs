@@ -24,12 +24,7 @@ namespace Player
             playerRotate = new Vector3(0, -_mouseX * sensitivity, 0);
             transform.eulerAngles = transform.eulerAngles - playerRotate;
             var tempCameraRotation = playerCamera.transform.eulerAngles - cameraRotate;
-            Debug.Log(tempCameraRotation);
-            if (tempCameraRotation.x >= 75f && tempCameraRotation.x <= 285f)
-            {
-                return;
-            }
-
+            if (tempCameraRotation.x >= 75f && tempCameraRotation.x <= 285f) return;
             playerCamera.transform.eulerAngles = tempCameraRotation;
         }
     }
