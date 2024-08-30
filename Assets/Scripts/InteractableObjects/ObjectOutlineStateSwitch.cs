@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using InteractableObjects.Interfaces;
 using UnityEngine;
 
-public class ObjectOutlineStateSwitch : MonoBehaviour,IStateSwitch
+namespace InteractableObjects
 {
-    [SerializeField] private Outline objectOutline;
-    public void SwitchState(bool state)
+    public class ObjectOutlineStateSwitch : MonoBehaviour,IStateSwitch
     {
-        objectOutline.enabled = state;
+        [SerializeField] private Outline objectOutline;
+        public void SwitchState(bool state)
+        {
+            objectOutline.enabled = state;
+        }
     }
 }

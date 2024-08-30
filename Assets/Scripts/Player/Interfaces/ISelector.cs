@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface ISelector
+namespace Player.Interfaces
 {
-    public void CheckSelectedObject(string objectTag);
+    public interface ISelector
+    {
+        public void CheckSelectedObject(string objectTag);
+    }
 }

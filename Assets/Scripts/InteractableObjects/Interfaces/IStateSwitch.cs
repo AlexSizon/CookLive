@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IStateSwitch
+namespace InteractableObjects.Interfaces
 {
-    public void SwitchState(bool state);
+    public interface IStateSwitch
+    {
+        public void SwitchState(bool state);
+    }
 }
