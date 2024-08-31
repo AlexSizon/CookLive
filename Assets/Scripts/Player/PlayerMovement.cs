@@ -10,7 +10,9 @@ namespace Player
         private float _horizontal;
         private float _vertical;
         private int accelerationCoefficient = 0;
-        private const int ACCELERATION_MODIFIER=2;
+        private const int ACCELERATION_MODIFIER = 2;
+        private const KeyCode ACCELERATION_KEY = KeyCode.LeftShift;
+        private const KeyCode UNLOCK_CURSOR_KEY = KeyCode.Escape;
 
         private void Awake()
         {
@@ -22,13 +24,16 @@ namespace Player
         {
             _horizontal = Input.GetAxis("Horizontal");
             _vertical = Input.GetAxis("Vertical");
-            
-            if (Input.GetKey(KeyCode.Escape)) SetCursorLockState(true);
-            if (Input.GetKeyDown(KeyCode.RightShift))
+
+            if (Input.GetKey(UNLOCK_CURSOR_KEY)) SetCursorLockState(true);
+            if (Input.GetKeyDown(ACCELERATION_KEY))
             {
+                Debug.Log(accelerationCoefficient);
                 accelerationCoefficient += ACCELERATION_MODIFIER;
+                Debug.Log(accelerationCoefficient);
             }
-            if (Input.GetKeyUp(KeyCode.RightShift))accelerationCoefficient -= ACCELERATION_MODIFIER;
+
+            if (Input.GetKeyUp(ACCELERATION_KEY)) accelerationCoefficient -= ACCELERATION_MODIFIER;
 
             MovePlayer();
         }
@@ -39,7 +44,7 @@ namespace Player
             Vector3 moveDirection = Vector3.zero;
             moveDirection = new Vector3(_horizontal, 0, _vertical);
             moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection *= (speed+accelerationCoefficient);
+            moveDirection *= (speed + accelerationCoefficient);
             _controller.Move(moveDirection * Time.deltaTime);
         }
 

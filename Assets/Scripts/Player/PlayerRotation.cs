@@ -4,8 +4,8 @@ namespace Player
 {
     public class PlayerRotation : MonoBehaviour
     {
-        [SerializeField] private Camera playerCamera;
         [SerializeField] private float sensitivity = 5f;
+        public Camera playerCamera;
         private float _mouseX;
         private float _mouseY;
         private Vector3 cameraRotate;
