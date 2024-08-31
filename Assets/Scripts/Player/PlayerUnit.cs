@@ -17,7 +17,7 @@ namespace Player
         private Ray detectingObjectsRay;
         private RaycastHit HitInfo;
         private Collider selectedObjectColider;
-        private Transform handChildObject;
+        private Rigidbody handChildObject;
         private Transform mainCamera;
 
         private void Start()
@@ -37,22 +37,17 @@ namespace Player
 
         public void CheckSelectedObject(string objectTag)
         {
-            if (Physics.Raycast(mainCamera.position, mainCamera.forward, out HitInfo, 5f))
+            if (Physics.Raycast(mainCamera.position, mainCamera.forward, out HitInfo, 2f))
             {
-                if (selectedObjectColider is not null)
-                {
-                    if (HitInfo.collider.GetInstanceID() != selectedObjectColider.GetInstanceID())
-                    {
-                        selectedObjectColider.GetComponent<ObjectOutlineStateSwitch>().SwitchState(false);
-                    }
-                }
-
-                Debug.Log(HitInfo.transform.tag);
                 if (HitInfo.transform.CompareTag(objectTag))
                 {
-                    Debug.Log(4);
                     selectedObjectColider = HitInfo.collider;
                     HitInfo.transform.GetComponent<ObjectOutlineStateSwitch>().SwitchState(true);
+                }
+                if (selectedObjectColider is null) return;
+                if (HitInfo.collider.GetInstanceID() != selectedObjectColider.GetInstanceID())
+                {
+                    selectedObjectColider.GetComponent<ObjectOutlineStateSwitch>().SwitchState(false);
                 }
             }
             else if (selectedObjectColider is not null)
@@ -66,10 +61,13 @@ namespace Player
         {
             if (selectedObjectColider != null && selectedObjectColider.CompareTag(INTERACTABLE_OBJECT_TAG))
             {
-                handChildObject = selectedObjectColider.transform;
+                handChildObject = selectedObjectColider.GetComponent<Rigidbody>();
                 handChildObject.transform.SetParent(rightHand);
                 handChildObject.rotation = Quaternion.identity;
-                handChildObject.localPosition = Vector3.zero;
+                handChildObject.useGravity = false;
+                //handChildObject.isKinematic = true;
+                //handChildObject.WakeUp();
+                //handChildObject.localPosition = Vector3.zero;
             }
         }
 
@@ -77,6 +75,8 @@ namespace Player
         {
             if (handChildObject is null) return;
             handChildObject.transform.SetParent(null);
+            //handChildObject.isKinematic = false;
+            handChildObject.useGravity = true;
             handChildObject = null;
         }
 
