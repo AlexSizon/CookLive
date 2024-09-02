@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using DG.Tweening.Core;
 using InteractableObjects;
+using InteractableObjects.Interfaces;
 using Player.Interfaces;
 using UnityEngine;
 using Zenject;
@@ -31,6 +32,8 @@ namespace Player
 
         public void PickUp()
         {
+            if (objectSelector.SelectedObject != null &&
+                objectSelector.SelectedObject.Rigidbody.TryGetComponent<IInteractable>(out var interactable)) return;
             if (objectSelector.SelectedObject != null)
             {
                 //TODO::
@@ -57,6 +60,9 @@ namespace Player
         {
             if (Input.GetKey(KeyCode.Mouse0)) PickUp();
             if (Input.GetKey(KeyCode.G)) Drop();
+            if (Input.GetKeyDown(KeyCode.E) &&
+                objectSelector.SelectedObject.Rigidbody.TryGetComponent<IInteractable>(out var interactable))
+                interactable.Interact();
         }
     }
 }
