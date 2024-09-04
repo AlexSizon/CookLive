@@ -23,7 +23,8 @@ namespace Equipment
 
         private IEnumerator PlayParticles(float duration)
         {
-            var currentParticles=Instantiate(particleSystem, spawnPoint.position, Quaternion.identity);
+            var currentParticles =
+                Instantiate(particleSystem, spawnPoint.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
             currentParticles.Play();
             yield return new WaitForSeconds(duration);
             currentParticles.Stop();
