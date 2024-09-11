@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum QteType
+namespace Equipment.Enums
 {
-    Reaction,
-    FruitNinja,
-    FoodConstructor
+    public enum QteType
+    {
+        GuitarHero,
+        FruitNinja,
+        FoodConstructor
+    }
 }
