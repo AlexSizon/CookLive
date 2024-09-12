@@ -60,7 +60,7 @@ namespace Player
         {
             if (Input.GetKey(KeyCode.Mouse0)) PickUp();
             if (Input.GetKey(KeyCode.G)) Drop();
-            if (Input.GetKeyDown(KeyCode.E) &&
+            if (Input.GetKeyDown(KeyCode.E) && objectSelector.SelectedObject is not null &&
                 objectSelector.SelectedObject.Rigidbody.TryGetComponent<IInteractable>(out var interactable))
                 interactable.Interact();
         }
