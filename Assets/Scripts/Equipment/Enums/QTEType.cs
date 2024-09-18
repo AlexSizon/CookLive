@@ -4,6 +4,7 @@ namespace Equipment.Enums
     {
         GuitarHero,
         FruitNinja,
-        FoodConstructor
+        FoodConstructor,
+        DrinksPouring
     }
 }
