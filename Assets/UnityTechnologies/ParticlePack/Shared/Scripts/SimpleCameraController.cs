@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace UnityTemplateProjects
+namespace UnityTemplateProjectsTemp
 {
-    public class SimpleCameraController : MonoBehaviour
+    public partial class SimpleCameraController : MonoBehaviour
     {
         class CameraState
         {
