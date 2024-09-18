@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Models/Cafe Pack/_DemoScenes/HDRPScene.unity.meta
+guid: 39d4570361e825c468fbfe4aab9decc3
+========
 guid: 27d7b17fd905ee14bbda04eafd7b0817
+>>>>>>>> game-scene:Assets/Models/Equipment/Furniture_FREE/Scenes/Overview.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

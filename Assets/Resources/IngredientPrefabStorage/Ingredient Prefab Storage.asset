@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d9f6d0ccc7cbf4ca0b6dec90d9ab69, type: 3}
+  m_Name: Ingredient Prefab Storage
+  m_EditorClassIdentifier: 
+  IngredientStorage:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 2227970163615346386, guid: bb7d65d1202e58749b7e766b8d282ff2, type: 3}
+    - Key: 1
+      Value: {fileID: 8696718171863364072, guid: e65e78a18bdcec4459221fb3b8cf06ca, type: 3}
