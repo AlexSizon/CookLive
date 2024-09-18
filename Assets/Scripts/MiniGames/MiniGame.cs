@@ -26,16 +26,22 @@ namespace MiniGames
         }
 
         public abstract void StartGame();
-        public abstract void GetMiniGameResult();
 
         public abstract void ResetGame();
 
-        public void MiniGameFailed()
+        public void MiniGameFailed(Action onFailed=null)
         {
             ResetGame();
             FailedPanel.alpha = 1;
             FailedPanel.interactable = true;
             FailedPanel.blocksRaycasts = true;
+            onFailed?.Invoke();
+        }
+
+        public void MiniGamePassed(Action onPassed=null)
+        {
+            ResetGame();
+            onPassed?.Invoke();
         }
     }
 }

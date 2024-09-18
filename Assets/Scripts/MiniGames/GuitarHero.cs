@@ -16,6 +16,7 @@ namespace MiniGames
         private List<RectTransform> triggerObjects;
         private Action onComplete;
         private int missedObjects = 0;
+        private int catchedObjects = 0;
 
         private void Update()
         {
@@ -23,11 +24,11 @@ namespace MiniGames
             {
                 foreach (var item in triggerObjects)
                 {
-                    Debug.Log(item.name);
                     if (item.anchoredPosition.x > triggeredObject.anchoredPosition.x - 25 &&
                         item.anchoredPosition.x < triggeredObject.anchoredPosition.x + 25)
                     {
                         Destroy(item.gameObject);
+                        catchedObjects++;
                     }
                 }
             }
@@ -35,17 +36,21 @@ namespace MiniGames
 
         private void FixedUpdate()
         {
-            if (missedObjects > 2) MiniGameFailed();
+            if (missedObjects > 2)
+            {
+                MiniGameFailed();
+            }
+            else if (catchedObjects>7)
+            {
+                
+            }
+            
         }
 
         public override void StartGame()
         {
             triggerObjects = new List<RectTransform>();
             StartCoroutine(CirclesSpawner(10));
-        }
-
-        public override void GetMiniGameResult()
-        {
         }
 
         public override void ResetGame()
