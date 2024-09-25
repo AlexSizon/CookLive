@@ -344,6 +344,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectOutline: {fileID: 660027364}
+  rigidbody: {fileID: 0}
+  grabOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &660027364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,6 +546,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectOutline: {fileID: 706585528}
+  rigidbody: {fileID: 706585530}
+  grabOffset: {x: 0, y: 0, z: 0}
 --- !u!54 &706585530
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -804,6 +808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectOutline: {fileID: 1598580634}
+  rigidbody: {fileID: 0}
+  grabOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1598580634
 MonoBehaviour:
   m_ObjectHideFlags: 0
