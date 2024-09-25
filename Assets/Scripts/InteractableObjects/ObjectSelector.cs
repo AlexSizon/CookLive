@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using InteractableObjects;
 using InteractableObjects.Interfaces;
 using Player.Interfaces;
 using UnityEngine;

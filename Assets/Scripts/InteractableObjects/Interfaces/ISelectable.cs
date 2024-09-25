@@ -6,6 +6,6 @@ namespace InteractableObjects.Interfaces
     {
         public void Select();
         public void Deselect();
-        Rigidbody Rigidbody { get; }
+        Transform Transform { get; }
     }
 }
