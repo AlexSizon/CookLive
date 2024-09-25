@@ -34,8 +34,8 @@ namespace Player
             }
 
             if (Input.GetKeyUp(ACCELERATION_KEY)) accelerationCoefficient -= ACCELERATION_MODIFIER;
-
-            MovePlayer();
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S) ||
+                Input.GetKey(KeyCode.W)) MovePlayer();
         }
 
 
